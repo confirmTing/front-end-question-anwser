@@ -40,3 +40,40 @@ eg:
 * 因不同语言产生文字长度变化，会导致布局问题，最好使用不受文字长短的设计
 * 颜色使用，在不同国家意义不同
 * 日期和货币的显示不同
+
+## What are data- attributes good for?
+什么是data-属性？
+
+在 JavaScript 框架流行之前，经常使用此属性，可以存储与元素相关的数据,这依然是一个很好的解决方案。
+
+使用现代化框架，不建议使用自定义属性，用户可以直接使用开发者工具修改属性值，数据最好存储在js变量中，利用数据绑定保持 DOM 更新
+
+#### js 访问：
+
+兼容性：ie11 支持，之前版本都不支持 dataset 可以通过 `getAttrbute()` 获取
+
+性能上：通过 js `dataset` 读取数据相比 `getAttrbute()` 和 js 变量慢。
+
+#### css 访问：
+``` css
+article::before {
+  content: attr(data-parent);
+}
+```
+
+参考链接：
+
+[https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Using_data_attributes](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Using_data_attributes)
+
+
+## Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+HTML5 的组成是什么？
+
+* 语义化标签，更准确的描述内容，便于seo
+* 连通性，提供新的方式与服务器通讯，webRTC，webSockets
+* 离线存储，SessionStorage，LocalStorage，IndexDB
+* 多媒体，audio 和 video, webRTC, Camera API
+* 2D/3D 图形效果，canvas，WebGL，SVG
+* 性能和集成， Web Workers, 新一代引擎JIT
+* 设备访问，允许输入，输出设备的访问，Camera API，触摸，地理位置，设备方向
+* css3，动画，布局，过渡等...
